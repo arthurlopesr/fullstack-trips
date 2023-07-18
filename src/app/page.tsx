@@ -1,6 +1,7 @@
 'use client';
 
 import { QuickSearch } from "./components/quickSearch/QuickSearch";
+import { RecommendTrips } from "./components/recommendTrips/RecommendTrips";
 import { TripSearch } from "./components/tripSearch/TripSearch"
 
 export default function Home() {
@@ -9,6 +10,7 @@ export default function Home() {
     <div>
       <TripSearch />
       <QuickSearch />
+      <RecommendTrips />
     </div>
   )
 }
