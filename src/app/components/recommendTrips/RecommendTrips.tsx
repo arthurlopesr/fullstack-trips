@@ -1,3 +1,5 @@
+import { TripItem } from "@/components/tripItem/TripItem";
+import { Trip } from "@prisma/client";
 
 export async function RecommendTrips() {
 
@@ -15,10 +17,11 @@ export async function RecommendTrips() {
 
       </div>
 
-      {data.map((trip) => (
-        <img key={trip.id} src={trip.coverImage} alt="imgagens" />
-      ))}
-
+      <div className="flex flex-col items-center mt-5 gap-5">
+        {data.map((trip: Trip) => (
+          <TripItem key={trip.id} trip={trip} />
+        ))}
+      </div>
 
     </div>
   )
