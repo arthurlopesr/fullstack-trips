@@ -9,7 +9,7 @@ CREATE TABLE "Trip" (
     "description" TEXT NOT NULL,
     "coverImage" TEXT NOT NULL,
     "imagesUrl" TEXT[],
-    "highlights" TEXT NOT NULL,
+    "highlights" TEXT[],
     "maxGuests" INTEGER NOT NULL,
 
     CONSTRAINT "Trip_pkey" PRIMARY KEY ("id")
