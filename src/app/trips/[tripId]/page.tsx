@@ -2,6 +2,7 @@ import { prisma } from "@/lib/prisma"
 import { TripHeader } from "./components/tripHeader/TripHeader";
 import { TripReservation } from "./components/tripReservation/TripReservation";
 import { TripHighlights } from "./components/tripHighligths/TripHighligths";
+import { TripLocation } from "./components/tripLocation/TripLocation";
 
 const getTripDetails = async (tripId: string) => {
   const trip = await prisma.trip.findUnique({
@@ -25,6 +26,7 @@ export default async function TripDetails({ params }: { params: { tripId: string
       <TripHeader trip={trip} />
       <TripReservation trip={trip} />
       <TripHighlights highlights={trip.highlights}/>
+      <TripLocation location={trip.location} locationDescription={trip.locationDescription}/>
     </div>
   )
 }
