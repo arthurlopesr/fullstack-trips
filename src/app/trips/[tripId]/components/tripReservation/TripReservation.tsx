@@ -11,30 +11,31 @@ interface TripReservationProps {
 
 export function TripReservation({ trip }: TripReservationProps) {
   return (
-    <div>
-      <div className="flex flex-col px-5">
 
-        <div className="flex gap-4">
-          <DatePicker
-            className="w-full"
-            placeholderText="Data Inicial"
-            onChange={() => { }}
-          />
-          <DatePicker
-            className="w-full"
-            placeholderText="Data Final"
-            onChange={() => { }}
-          />
-        </div>
+    <div className="flex flex-col px-5 pb-10">
 
-        <Input className="mt-4" placeholder={`Número de hóspedes (max: ${trip.maxGuests})`} />
+      <div className="flex gap-4">
+        <DatePicker
+          className="w-full"
+          placeholderText="Data Inicial"
+          onChange={() => { }}
+        />
+        <DatePicker
+          className="w-full"
+          placeholderText="Data Final"
+          onChange={() => { }}
+        />
+      </div>
 
-        <div className="flex justify-between mt-3">
-          <p className="font-medium text-sm text-primaryDarker">Total: </p>
-          <p className="font-medium text-sm text-primaryDarker">R$ 2.500 </p>
-        </div>
+      <Input className="mt-4" placeholder={`Número de hóspedes (max: ${trip.maxGuests})`} />
 
-        <Button className="mt-3">
+      <div className="flex justify-between mt-3">
+        <p className="font-medium text-sm text-primaryDarker">Total: </p>
+        <p className="font-medium text-sm text-primaryDarker">R$ 2.500 </p>
+      </div>
+
+      <div className="pb-10 border-b border-grayLighter w-full">
+        <Button className="mt-3 w-full">
           Reservar agora
         </Button>
       </div>
