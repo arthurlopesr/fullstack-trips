@@ -5,7 +5,7 @@ import { Trip } from "@prisma/client";
 async function getTrips() {
   const trips = await prisma.trip.findMany({});
 
-  return trips
+  return trips;
 }
 
 export async function RecommendTrips() {
