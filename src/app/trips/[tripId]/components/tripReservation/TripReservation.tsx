@@ -4,6 +4,8 @@ import Button from "@/components/button/Button";
 import DatePicker from "@/components/datePicker/DatePicker";
 import Input from "@/components/input/Input";
 import { Trip } from "@prisma/client";
+import { TripDescription } from "../tripDescription/TripDescription";
+
 
 interface TripReservationProps {
   trip: Trip
@@ -39,6 +41,8 @@ export function TripReservation({ trip }: TripReservationProps) {
           Reservar agora
         </Button>
       </div>
+
+      <TripDescription description={trip.description}/>
     </div>
   )
 }
