@@ -29,6 +29,7 @@ export default async function TripDetails({ params }: { params: { tripId: string
         tripStartDate={trip.startDate}
         tripEndDate={trip.endDate}
         description={trip.description}
+        pricePerDay={trip.pricePerDay as any}
       />
       <TripHighlights highlights={trip.highlights} />
       <TripLocation location={trip.location} locationDescription={trip.locationDescription} />
