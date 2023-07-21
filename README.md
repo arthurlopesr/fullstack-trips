@@ -1,34 +1,55 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<!-- Logo -->
 
-## Getting Started
+<div align="center">
+  
+ ![Logo](https://github.com/arthurlopesr/fullstack-trips/assets/72874475/15d05a81-6df1-4f56-9126-fe349aca3a99)
+ 
+</div>
+  <br />
+<!-- Atribuições-->
 
-First, run the development server:
+<div align="center">
+  
+![Capa](https://github.com/arthurlopesr/fullstack-trips/assets/72874475/5d7c0542-31e8-4bc6-a845-ed61ad7c2005)
+</div>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+  <br />
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 🛠️ Em contrução
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+&nbsp;
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### 🛠️ Nesse projeto foi utilizado:
 
-## Learn More
+* [React](https://pt-br.reactjs.org/)
+* [React Hook Form](https://react-hook-form.com/)
+* [Next JS](https://nextjs.org/)
+* [Next Auth](https://next-auth.js.org/)
+* [Postgres](https://www.postgresql.org/)
+* [Prisma](https://www.prisma.io/)
+* [Google Cloud - API (login)](https://cloud.google.com/?hl=pt-br)
+* [TypeScript](https://www.typescriptlang.org/)
+* [Tailwind CSS](https://tailwindcss.com/)
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+&nbsp;
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<div align="center">
+ <a href="https://app.rocketseat.com.br/me/arthur-lopes">
+   <img align="center" style="border-radius: 100%;" src="https://github.com/arthurlopesr.png" width="100px" alt=""/>
+  </a>
+</div>
+<br/>
+<p align="center">Desenvolvido por Arthur Lopes 🚀 </p> 
+<p align="center">Entre em contato!</p>
+<div align="center">
+<a href="https://www.linkedin.com/in/arthur-lopesr/" target="_blank">
+    <img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" />
+  </a>&nbsp;&nbsp;
+ <a href="https://www.instagram.com/arthur_lopesr/" target="_blank">
+    <img src="https://img.shields.io/badge/instagram-%23E4405F.svg?&style=for-the-badge&logo=instagram&logoColor=white" />        
+  </a>&nbsp;&nbsp;
+ <a href="mailto:arthurlopr12@gmail.com">
+    <img src="https://img.shields.io/badge/-Gmail-%23333?style=for-the-badge&logo=gmail&logoColor=white" />        
+  </a>&nbsp;&nbsp; 
+</div>
