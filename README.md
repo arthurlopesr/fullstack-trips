@@ -10,7 +10,7 @@
 
 <div align="center">
   
-  ![Capa](https://github.com/arthurlopesr/fullstack-trips/assets/72874475/8abb1a7b-3e89-43fb-a7d3-decc3b864f55)
+![Capa](https://github.com/arthurlopesr/fullstack-trips/assets/72874475/5d7c0542-31e8-4bc6-a845-ed61ad7c2005)
 </div>
 
   <br />
