@@ -3,13 +3,15 @@ import React from "react";
 import Button from "@/components/button/Button";
 import DatePicker from "@/components/datePicker/DatePicker";
 import Input from "@/components/input/Input";
-import { Trip } from "@prisma/client";
 import { TripDescription } from "../tripDescription/TripDescription";
-import { Controller, useForm } from "react-hook-form";
+import { Controller, useForm, useWatch } from "react-hook-form";
 
 
 interface TripReservationProps {
-  trip: Trip;
+  tripStartDate: Date;
+  tripEndDate: Date;
+  maxGuests: number;
+  description: string
 }
 
 interface TripReservartionForm {
@@ -18,17 +20,20 @@ interface TripReservartionForm {
   endDate: Date | null;
 }
 
-export function TripReservation({ trip }: TripReservationProps) {
+export function TripReservation({ tripEndDate, tripStartDate, maxGuests, description }: TripReservationProps) {
   const {
     register,
     handleSubmit,
     formState: { errors },
-    control
+    control,
+    watch
   } = useForm<TripReservartionForm>();
 
   const onSubmit = (data: any) => {
     console.log(data);
   };
+
+  const startDate = watch("startDate");
 
   return (
 
@@ -45,13 +50,14 @@ export function TripReservation({ trip }: TripReservationProps) {
           control={control}
           render={({ field }) => (
             <DatePicker
-            className="w-full"
-            placeholderText="Data Inicial"
-            onChange={field.onChange}
-            selected={field.value}
-            error={!!errors?.startDate}
-            errorMessage={errors?.startDate?.message}
-          />
+              className="w-full"
+              placeholderText="Data Inicial"
+              onChange={field.onChange}
+              selected={field.value}
+              error={!!errors?.startDate}
+              errorMessage={errors?.startDate?.message}
+              minDate={tripStartDate}
+            />
           )}
         />
 
@@ -66,13 +72,15 @@ export function TripReservation({ trip }: TripReservationProps) {
           control={control}
           render={({ field }) => (
             <DatePicker
-            className="w-full"
-            placeholderText="Data Final"
-            onChange={field.onChange}
-            selected={field.value}
-            error={!!errors?.endDate}
-            errorMessage={errors?.endDate?.message}
-          />
+              className="w-full"
+              placeholderText="Data Final"
+              onChange={field.onChange}
+              selected={field.value}
+              error={!!errors?.endDate}
+              errorMessage={errors?.endDate?.message}
+              maxDate={tripEndDate}
+              minDate={startDate ?? tripStartDate}
+            />
           )}
         />
 
@@ -80,7 +88,7 @@ export function TripReservation({ trip }: TripReservationProps) {
 
       <Input
         className="mt-4"
-        placeholder={`Número de hóspedes (max: ${trip.maxGuests})`}
+        placeholder={`Número de hóspedes (max: ${maxGuests})`}
         {...register('guests', {
           required: {
             value: true,
@@ -104,7 +112,7 @@ export function TripReservation({ trip }: TripReservationProps) {
 
       </div>
 
-      <TripDescription description={trip.description} />
+      <TripDescription description={description} />
 
     </div>
   )
