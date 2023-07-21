@@ -26,7 +26,7 @@
 * [Next Auth](https://next-auth.js.org/)
 * [Postgres](https://www.postgresql.org/)
 * [Prisma](https://www.prisma.io/)
-* [Google Clound - API (login)](https://cloud.google.com/?hl=pt-br)
+* [Google Cloud - API (login)](https://cloud.google.com/?hl=pt-br)
 * [TypeScript](https://www.typescriptlang.org/)
 * [Tailwind CSS](https://tailwindcss.com/)
 
