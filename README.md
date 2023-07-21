@@ -22,6 +22,7 @@
 ### 🛠️ Nesse projeto foi utilizado:
 
 * [React](https://pt-br.reactjs.org/)
+* [React Hook Form](https://react-hook-form.com/)
 * [Next JS](https://nextjs.org/)
 * [Next Auth](https://next-auth.js.org/)
 * [Postgres](https://www.postgresql.org/)
