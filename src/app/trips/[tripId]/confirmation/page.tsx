@@ -30,9 +30,14 @@ export default function Confirmation({ params }: { params: { tripId: string } })
         })
       });
 
-      const { trip, totalPrice } = await response.json();
-      setTrip(trip)
-      setTotalPrice(totalPrice);
+      const res = await response.json();
+
+      if (res?.error) {
+        router.push("/");
+      }
+
+      setTrip(res.trip)
+      setTotalPrice(res.totalPrice);
     };
 
     if (status === 'unauthenticated') {
@@ -40,7 +45,7 @@ export default function Confirmation({ params }: { params: { tripId: string } })
     }
 
     fetchTrip();
-  }, [status])
+  }, [status, searchParams, params.tripId, router])
 
   if (!trip) return null;
 
