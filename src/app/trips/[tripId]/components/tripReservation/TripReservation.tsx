@@ -6,14 +6,16 @@ import Input from "@/components/input/Input";
 import { TripDescription } from "../tripDescription/TripDescription";
 import { Controller, useForm, useWatch } from "react-hook-form";
 import { differenceInDays } from "date-fns";
+import { buffer } from "stream/consumers";
 
 
 interface TripReservationProps {
+  tripId: string;
   tripStartDate: Date;
   tripEndDate: Date;
   maxGuests: number;
   description: string;
-  pricePerDay: number
+  pricePerDay: number;
 }
 
 interface TripReservartionForm {
@@ -22,7 +24,7 @@ interface TripReservartionForm {
   endDate: Date | null;
 }
 
-export function TripReservation({ tripEndDate, tripStartDate, maxGuests, description, pricePerDay }: TripReservationProps) {
+export function TripReservation({ tripId, tripEndDate, tripStartDate, maxGuests, description, pricePerDay }: TripReservationProps) {
   const {
     register,
     handleSubmit,
@@ -31,8 +33,18 @@ export function TripReservation({ tripEndDate, tripStartDate, maxGuests, descrip
     watch
   } = useForm<TripReservartionForm>();
 
-  const onSubmit = (data: any) => {
-    console.log(data);
+  const onSubmit = async (data: TripReservartionForm) => {
+    const response = await fetch('http://localhost:3000/api/trips/check', {
+      method: 'POST',
+      body: Buffer.from(JSON.stringify({
+        startDate: data.startDate,
+        endDate: data.endDate,
+        tripId,
+      })),
+    });
+    const res = await response.json();
+    console.log(res);
+
   };
 
   const startDate = watch("startDate");
@@ -76,6 +88,8 @@ export function TripReservation({ tripEndDate, tripStartDate, maxGuests, descrip
           render={({ field }) => (
             <DatePicker
               className="w-full"
+              dateFormat="dd/MM/yyyy"
+              locale="ptBR"
               placeholderText="Data Final"
               onChange={field.onChange}
               selected={field.value}
@@ -105,7 +119,7 @@ export function TripReservation({ tripEndDate, tripStartDate, maxGuests, descrip
       <div className="flex justify-between mt-3">
         <p className="font-medium text-sm text-primaryDarker">Total: </p>
         <p className="font-medium text-sm text-primaryDarker">
-        {startDate && endDate
+          {startDate && endDate
             ? `R$ ${differenceInDays(endDate, startDate) * pricePerDay}`
             : 'R$ 0'
           }
