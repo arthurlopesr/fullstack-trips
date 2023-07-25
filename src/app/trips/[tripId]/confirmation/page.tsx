@@ -10,12 +10,13 @@ import Button from "@/components/button/Button";
 import { format } from "date-fns";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 
 export default function Confirmation({ params }: { params: { tripId: string } }) {
   const [trip, setTrip] = useState<Trip | null>();
   const [totalPrice, setTotalPrice] = useState<number>(0)
   const router = useRouter();
-  const { status } = useSession();
+  const { status, data } = useSession();
 
   const searchParams = useSearchParams();
 
@@ -48,6 +49,30 @@ export default function Confirmation({ params }: { params: { tripId: string } })
   }, [status, searchParams, params.tripId, router])
 
   if (!trip) return null;
+
+  const handleByClick = async () => {
+    const res = await fetch('http://localhost:3000/api/trips/reservation', {
+      method: 'POST',
+      body: Buffer.from(
+        JSON.stringify({
+          tripId: params.tripId,
+          startDate: searchParams.get("startDate"),
+          endDate: searchParams.get("endDate"),
+          guests: Number(searchParams.get("guests")),
+          userId: (data?.user as any)?.id!,
+          totalPaid: totalPrice,
+        })
+      )
+    });
+
+    if (!res.ok) {
+      return toast.error("Ocorreu um erro ao realizar a reserva!", { position: "bottom-center" })
+    }
+
+    router.push("/");
+
+    toast.success("Reserva realizada com sucesso!", { position: "bottom-center" })
+  }
 
   const startDate = new Date(searchParams.get("startDate") as string);
   const endDate = new Date(searchParams.get("endDate") as string);
@@ -93,7 +118,7 @@ export default function Confirmation({ params }: { params: { tripId: string } })
         <h3 className="font-semibold mt-5">Hóspedes</h3>
         <p>{guests} hóspedes</p>
 
-        <Button className="mt-5" >
+        <Button className="mt-5" onClick={handleByClick}>
           Finalizar Compra
         </Button>
       </div>
