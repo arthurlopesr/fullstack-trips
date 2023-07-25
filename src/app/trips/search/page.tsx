@@ -12,17 +12,25 @@ const Trips = () => {
 
   useEffect(() => {
     const fetchTrips = async () => {
-      const response = await fetch(
-        `/api/trips/search?text=${searchParams.get("text") ?? ""}&startDate=${searchParams.get("startDate")}&budget=${searchParams.get("budget")}`
-      );
+      try {
+        const response = await fetch(
+          `/api/trips/search?text=${searchParams.get("text") ?? ""}&startDate=${searchParams.get("startDate")}&budget=${searchParams.get("budget")}`
+        );
 
-      const data = await response.json();
+        if (!response.ok) {
+          throw new Error('Erro ao obter os dados da API');
+        }
 
-      setTrips(data);
+        const data = await response.json();
+
+        setTrips(data);
+      } catch (error) {
+        console.error('Erro ao processar os dados:', error);
+      }
     };
 
     fetchTrips();
-  }, []);
+  }, [searchParams]);
 
   return (
     <div className="container mx-auto flex flex-col items-center lg:items-start p-5 lg:pt-10">
