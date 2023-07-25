@@ -28,7 +28,7 @@
 * [Postgres](https://www.postgresql.org/)
 * [Prisma](https://www.prisma.io/)
 * [Google Cloud - API (login)](https://cloud.google.com/?hl=pt-br)
-* [Stripe)](https://stripe.com/br)
+* [Stripe](https://stripe.com/br)
 * [TypeScript](https://www.typescriptlang.org/)
 * [Tailwind CSS](https://tailwindcss.com/)
 
