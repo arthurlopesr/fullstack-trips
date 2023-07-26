@@ -15,7 +15,7 @@
 
   <br />
 
-### 🛠️ Em contrução
+https://github.com/arthurlopesr/fullstack-trips/assets/72874475/3ee6dd75-91a6-45a7-b0b7-220ce7e77742
 
 &nbsp;
 
