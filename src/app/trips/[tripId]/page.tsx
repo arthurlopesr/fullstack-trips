@@ -22,17 +22,26 @@ export default async function TripDetails({ params }: { params: { tripId: string
   }
 
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto lg:px-40">
       <TripHeader trip={trip} />
-      <TripReservation
-        tripId={trip.id}
-        maxGuests={trip.maxGuests}
-        tripStartDate={trip.startDate}
-        tripEndDate={trip.endDate}
-        description={trip.description}
-        pricePerDay={trip.pricePerDay as any}
-      />
-      <TripHighlights highlights={trip.highlights} />
+      <div className="flex flex-col lg:flex-row lg:mt-5">
+
+        <div className="lg:order-2">
+          <TripReservation
+            tripId={trip.id}
+            maxGuests={trip.maxGuests}
+            tripStartDate={trip.startDate}
+            tripEndDate={trip.endDate}
+            description={trip.description}
+            pricePerDay={trip.pricePerDay as any}
+          />
+        </div>
+
+        <div className="lg:order-1">
+          <TripHighlights highlights={trip.highlights} />
+        </div>
+
+      </div>
       <TripLocation location={trip.location} locationDescription={trip.locationDescription} />
     </div>
   )
